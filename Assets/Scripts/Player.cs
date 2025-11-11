@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class PlayerAutoJump : MonoBehaviour
 {
@@ -34,19 +35,25 @@ public class PlayerAutoJump : MonoBehaviour
     {
         if (timeRunning == true)
         {
+            PlayerIdle.SetActive(false);
+            PlayerJump.SetActive(true);
             if (timePassed < TargetTime)
             {
                 timePassed += Time.deltaTime;
             }
             if (timePassed >= TargetTime)
             {
-                PlayerIdle.SetActive(false);
-                PlayerJump.SetActive(true);
+                PlayerIdle.SetActive(true);
+                PlayerJump.SetActive(false);
+
                 timeRunning = false;
-                Debug.Log("Aika");
+                timePassed = 0.0f;
             }
         }
-    }
+
+        }
+    
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
