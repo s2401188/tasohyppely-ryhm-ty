@@ -4,69 +4,71 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+public class PlayerAutoJump : MonoBehaviour
 {
-    [SerializeField]
-    private float speed;
-
-    private Rigidbody2D rigidbody;
-    private Vector2 movementInput;
-
+    public float moveSpeed = 6f;   // Left/right movement speed
+    public float jumpForce = 12f;  // How high the player jumps automatically
     public int CurrentHealth = 1;
-    public int MaxHealth = 2;
-    private int CollectableItems = 0;
-    public int ItemsNeededToWin = 1;
-    public int StopSendingNotes = 0;
+    public GameObject PlayerIdle;
+    public GameObject PlayerJump;
+    private bool timeRunning = false;
+    private float timePassed = 0.0f;
+    public float TargetTime = 5.0f;
 
+    private Rigidbody2D rb;
 
-    private void Awake()
+    void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
-    private void Update()
+
+    void Update()
     {
-        if (CurrentHealth == 0)
-        {
+        // Get input (A/D or Left/Right arrows)
+        float inputX = Input.GetAxis("Horizontal");
 
-            SceneManager.LoadScene(0);
-        }
-
-        if (ItemsNeededToWin == 2)
+        // Apply left/right movement
+        rb.linearVelocity = new Vector2(inputX * moveSpeed, rb.linearVelocity.y);
+    }
+    private void FixedUpdate()
+    {
+        if (timeRunning == true)
         {
-            if (StopSendingNotes == 0)
+            if (timePassed < TargetTime)
             {
-
-                SceneManager.LoadScene(1);
-                StopSendingNotes = 1;
+                timePassed += Time.deltaTime;
+            }
+            if (timePassed >= TargetTime)
+            {
+                PlayerIdle.SetActive(false);
+                PlayerJump.SetActive(true);
+                timeRunning = false;
+                Debug.Log("Aika");
             }
         }
     }
 
-    private void FixedUpdate()
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        rigidbody.linearVelocity = movementInput * speed;
-    }
+        // Auto jump only if the player is falling or standing (not going upward)
+        if (rb.linearVelocity.y <= 0f)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            if (collision.gameObject.CompareTag("Ground"))
+            timeRunning = true;
+        }
 
-    private void OnMove(InputValue inputValue)
-    {
-        movementInput = inputValue.Get<Vector2>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-
+        if (other.gameObject.CompareTag("HEAL"))
+        {
+            CurrentHealth++;
+        }
         if (other.gameObject.CompareTag("Enemy"))
         {
-            if (CurrentHealth > 0)
-            {
-                CurrentHealth--;
-                Debug.Log(CurrentHealth);
-            }
+            CurrentHealth--;
         }
-        if (other.gameObject.CompareTag("GOAL"))
-        {
-            ItemsNeededToWin++;
-        }
-    }
 
-}
+    }
 }
