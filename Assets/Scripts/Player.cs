@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using System;
+using UnityEditor.Experimental.GraphView;
 
 public class PlayerAutoJump : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class PlayerAutoJump : MonoBehaviour
     private bool timeRunning = false;
     private float timePassed = 0.0f;
     public float TargetTime = 5.0f;
+
+
 
     private Rigidbody2D rb;
 
@@ -50,6 +54,7 @@ public class PlayerAutoJump : MonoBehaviour
                 timePassed = 0.0f;
             }
         }
+
 
         }
     
