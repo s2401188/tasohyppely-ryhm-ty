@@ -66,7 +66,7 @@ public class PlayerAutoJump : MonoBehaviour
         if (rb.linearVelocity.y <= 0f)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            if (collision.gameObject.CompareTag("Ground"))
+            //if (collision.gameObject.CompareTag("Ground"))
             timeRunning = true;
         }
 
