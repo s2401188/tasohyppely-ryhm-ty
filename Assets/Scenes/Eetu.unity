@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 1258092263}
   m_Layer: 0
   m_Name: "V\xE4liaikainenPelaaja"
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -871,8 +871,6 @@ MonoBehaviour:
   PlayerIdle: {fileID: 1681764256}
   PlayerJump: {fileID: 673714547}
   TargetTime: 0.3
-  CountScore: 0
-  StopScore: 0
 --- !u!4 &1258092268
 Transform:
   m_ObjectHideFlags: 0
@@ -989,7 +987,7 @@ GameObject:
   - component: {fileID: 1725385595}
   - component: {fileID: 1725385597}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1069,7 +1067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerHitsTheGround: 0
-  GetScoreOnce: 0
+  GetScoreOnce: 50
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
