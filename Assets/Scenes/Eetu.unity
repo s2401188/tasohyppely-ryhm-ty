@@ -870,7 +870,7 @@ MonoBehaviour:
   CurrentHealth: 1
   PlayerIdle: {fileID: 1681764256}
   PlayerJump: {fileID: 673714547}
-  TargetTime: 0.1
+  TargetTime: 0.3
 --- !u!4 &1258092268
 Transform:
   m_ObjectHideFlags: 0
