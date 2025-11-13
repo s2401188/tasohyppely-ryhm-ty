@@ -5,12 +5,14 @@ using System.Threading;
 using System;
 using System.Diagnostics;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.Events;
 
 public class GroundScore : MonoBehaviour
 {
-    public bool PlayerHitsTheGround = false;
-    public int GetScoreOnce = 0;
-
+   
+    private int GetScoreOnce = 0;
+   
+    public UnityEvent GetTheScore;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,14 +25,13 @@ public class GroundScore : MonoBehaviour
     {
 
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            if (GetScoreOnce < 1)
+            if (GetScoreOnce == 0)
             {
-
-                GetScoreOnce++;
+               GetScoreOnce++;
             }
         }
     }
