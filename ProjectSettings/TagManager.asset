@@ -7,6 +7,7 @@ TagManager:
   - GOAL
   - Enemy
   - Ground
+  - HEAL
   layers:
   - Default
   - TransparentFX

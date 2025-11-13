@@ -11,12 +11,13 @@ public class PlayerAutoJump : MonoBehaviour
 {
     public float moveSpeed = 6f;   // Left/right movement speed
     public float jumpForce = 12f;  // How high the player jumps automatically
-    public int CurrentHealth = 1;
+    private int CurrentHealth = 1;
     public GameObject PlayerIdle;
     public GameObject PlayerJump;
     private bool timeRunning = false;
     private float timePassed = 0.0f;
     public float TargetTime = 5.0f;
+    public int MaxHealth = 2;
 
 
 
@@ -75,11 +76,19 @@ public class PlayerAutoJump : MonoBehaviour
     {
         if (other.gameObject.CompareTag("HEAL"))
         {
-            CurrentHealth++;
+            if (CurrentHealth < MaxHealth)
+            {
+                CurrentHealth++;
+                Debug.Log(CurrentHealth);
+            }
         }
         if (other.gameObject.CompareTag("Enemy"))
         {
-            CurrentHealth--;
+            if (CurrentHealth > 0)
+            {
+                CurrentHealth--;
+                Debug.Log(CurrentHealth);
+            }
         }
 
     }
