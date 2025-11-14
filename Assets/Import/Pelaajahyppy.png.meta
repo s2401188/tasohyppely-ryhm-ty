@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pelaajahyppy_0: -1941510103001756460
+      Pelaajahyppy_1: -5271253086897885447
+      Pelaajahyppy_2: 6473050224394949116
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
