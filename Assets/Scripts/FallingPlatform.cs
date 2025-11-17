@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
+    public float fallDelay = 0.3f;
     Rigidbody2D rb;
+    bool triggered = false;
 
     void Start()
     {
@@ -11,6 +13,13 @@ public class FallingPlatform : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col)
+    {
+        if (triggered) return;
+        triggered = true;
+        Invoke("Drop", fallDelay);
+    }
+
+    void Drop()
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
     }

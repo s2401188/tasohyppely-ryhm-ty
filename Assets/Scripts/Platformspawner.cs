@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlatformSpawner : MonoBehaviour
 {
-    public GameObject platformPrefab;
+    public GameObject[] platformPrefabs;
     public int initialPlatforms = 8;
     public float minX = -2f;
     public float maxX = 2f;
@@ -42,13 +42,22 @@ public class PlatformSpawner : MonoBehaviour
         float x = Random.Range(minX, maxX);
         float y = highestY + Random.Range(minY, maxY);
         Vector3 pos = new Vector3(x, y, 0f);
-        GameObject p = Instantiate(platformPrefab, pos, Quaternion.identity);
+
+        int prefabIndex = Random.Range(0, platformPrefabs.Length);
+        GameObject p = Instantiate(platformPrefabs[prefabIndex], pos, Quaternion.identity);
+
         p.tag = "Ground";
 
-        int type = Random.Range(0, 3);
-        if (type == 0) p.AddComponent<NormalPlatform>();
-        else if (type == 1) p.AddComponent<FallingPlatform>();
-        else p.AddComponent<MovingPlatform>();
+        PlatformType typeScript = p.GetComponent<PlatformType>();
+        if (typeScript != null)
+        {
+            if (typeScript.behavior == PlatformBehavior.Normal)
+                p.AddComponent<NormalPlatform>();
+            else if (typeScript.behavior == PlatformBehavior.Falling)
+                p.AddComponent<FallingPlatform>();
+            else if (typeScript.behavior == PlatformBehavior.Moving)
+                p.AddComponent<MovingPlatform>();
+        }
 
         platforms.Add(p);
         highestY = y;

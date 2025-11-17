@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7857083125466684210}
-  - component: {fileID: -361649146212603598}
+  - component: {fileID: 6427718885967301780}
   m_Layer: 6
-  m_Name: Platform
+  m_Name: Platform 2
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 3934792767379610886}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-361649146212603598
+--- !u!114 &6427718885967301780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d92ce3d5b2a93045bd098fa7f2ec64e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behavior: 0
+  behavior: 2
 --- !u!1 &3294666129595412203
 GameObject:
   m_ObjectHideFlags: 0
