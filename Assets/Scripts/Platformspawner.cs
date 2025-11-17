@@ -17,18 +17,14 @@ public class PlatformSpawner : MonoBehaviour
     {
         highestY = -3f;
         for (int i = 0; i < initialPlatforms; i++)
-        {
             SpawnPlatform();
-        }
     }
 
     void Update()
     {
         float cameraTop = Camera.main.transform.position.y + Camera.main.orthographicSize;
         while (highestY < cameraTop + 8f)
-        {
             SpawnPlatform();
-        }
 
         float cameraBottom = Camera.main.transform.position.y - Camera.main.orthographicSize;
         for (int i = platforms.Count - 1; i >= 0; i--)
@@ -45,10 +41,16 @@ public class PlatformSpawner : MonoBehaviour
     {
         float x = Random.Range(minX, maxX);
         float y = highestY + Random.Range(minY, maxY);
-        Vector3 spawnPos = new Vector3(x, y, 0f);
-        GameObject newPlatform = Instantiate(platformPrefab, spawnPos, Quaternion.identity);
-        newPlatform.tag = "Ground";
-        platforms.Add(newPlatform);
+        Vector3 pos = new Vector3(x, y, 0f);
+        GameObject p = Instantiate(platformPrefab, pos, Quaternion.identity);
+        p.tag = "Ground";
+
+        int type = Random.Range(0, 3);
+        if (type == 0) p.AddComponent<NormalPlatform>();
+        else if (type == 1) p.AddComponent<FallingPlatform>();
+        else p.AddComponent<MovingPlatform>();
+
+        platforms.Add(p);
         highestY = y;
     }
 }
