@@ -90,6 +90,11 @@ public class PlayerAutoJump : MonoBehaviour
                 Debug.Log(CurrentHealth);
             }
         }
+        if (other.gameObject.CompareTag("Bottom"))
+        {
+            SceneManager.LoadScene(1);
+
+        }
 
     }
 }

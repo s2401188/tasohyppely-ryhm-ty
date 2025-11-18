@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
-    public float fallDelay = 0.3f;
+    public float fallDelay = 3.0f;
     Rigidbody2D rb;
     Collider2D col;
     bool triggered = false;
