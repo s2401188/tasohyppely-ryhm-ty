@@ -57,8 +57,8 @@ public class PlayerAutoJump : MonoBehaviour
         }
 
 
-        }
-    
+    }
+
 
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -93,13 +93,16 @@ public class PlayerAutoJump : MonoBehaviour
             {
                 SceneManager.LoadScene(2);
             }
+        }
+            if (other.gameObject.CompareTag("FinalBoss"))
+            {
+                SceneManager.LoadScene(3);
+            }
+            if (other.gameObject.CompareTag("Bottom"))
+            {
+                SceneManager.LoadScene(1);
+
+            }
 
         }
-        if (other.gameObject.CompareTag("Bottom"))
-        {
-            SceneManager.LoadScene(1);
-
-        }
-
     }
-}

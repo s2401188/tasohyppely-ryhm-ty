@@ -10,6 +10,8 @@ TagManager:
   - HEAL
   - Bottom
   - Spikes
+  - FinalBoss
+  - Trigger
   layers:
   - Default
   - TransparentFX

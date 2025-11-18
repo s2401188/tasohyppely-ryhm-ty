@@ -21,12 +21,15 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        if (playerTransform != null)
+        if (GameObject.Find("Trigger").GetComponent<CanFinalBossAttack>().HasEntered)
         {
-            // Lasketaan suunta pelaajaan
-            Vector2 direction = (playerTransform.position - transform.position).normalized;
-            // Liikutaan kohti pelaajaa
-            transform.position += (Vector3)direction * moveSpeed * Time.deltaTime;
+            if (playerTransform != null)
+            {
+                // Lasketaan suunta pelaajaan
+                Vector2 direction = (playerTransform.position - transform.position).normalized;
+                // Liikutaan kohti pelaajaa
+                transform.position += (Vector3)direction * moveSpeed * Time.deltaTime;
+            }
         }
     }
 }
