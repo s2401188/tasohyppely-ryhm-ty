@@ -82,13 +82,18 @@ public class PlayerAutoJump : MonoBehaviour
                 Debug.Log(CurrentHealth);
             }
         }
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Spikes"))
         {
-            if (CurrentHealth > 0)
+            if (CurrentHealth >= 1)
             {
                 CurrentHealth--;
                 Debug.Log(CurrentHealth);
             }
+            if (CurrentHealth == 0)
+            {
+                SceneManager.LoadScene(2);
+            }
+
         }
         if (other.gameObject.CompareTag("Bottom"))
         {

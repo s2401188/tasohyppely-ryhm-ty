@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - HEAL
   - Bottom
+  - Spikes
   layers:
   - Default
   - TransparentFX
