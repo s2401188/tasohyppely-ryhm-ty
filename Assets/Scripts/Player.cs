@@ -108,16 +108,16 @@ public class PlayerAutoJump : MonoBehaviour
             }
             if (CurrentHealth == 0)
             {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(3);
             }
         }
             if (other.gameObject.CompareTag("FinalBoss"))
             {
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene(4);
             }
             if (other.gameObject.CompareTag("Bottom"))
             {
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(2);
 
             }
 
