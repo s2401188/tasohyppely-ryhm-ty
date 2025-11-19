@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 using System;
 using UnityEditor.Experimental.GraphView;
+using TMPro;
 
 public class PlayerAutoJump : MonoBehaviour
 {
@@ -18,14 +19,23 @@ public class PlayerAutoJump : MonoBehaviour
     private float timePassed = 0.0f;
     public float TargetTime = 5.0f;
     public int MaxHealth = 2;
-
+    int count = 0;  
+    public TextMeshProUGUI countText;
 
 
     private Rigidbody2D rb;
 
     void Start()
     {
+        SetCountText();
         rb = GetComponent<Rigidbody2D>();
+
+  
+    }
+    void SetCountText()
+    {
+        // Update the count text with the current count.
+        countText.text = "Score: " + count.ToString();
     }
 
     void Update()
@@ -35,7 +45,9 @@ public class PlayerAutoJump : MonoBehaviour
 
         // Apply left/right movement
         rb.linearVelocity = new Vector2(inputX * moveSpeed, rb.linearVelocity.y);
-    }
+
+
+        }
     private void FixedUpdate()
     {
         if (timeRunning == true)
@@ -81,6 +93,11 @@ public class PlayerAutoJump : MonoBehaviour
                 CurrentHealth++;
                 Debug.Log(CurrentHealth);
             }
+        }
+        if (other.gameObject.CompareTag("Score"))
+        {
+            count = count + 50;
+            SetCountText();
         }
         if (other.gameObject.CompareTag("Spikes"))
         {

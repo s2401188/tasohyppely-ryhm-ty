@@ -12,6 +12,7 @@ TagManager:
   - Spikes
   - FinalBoss
   - Trigger
+  - Score
   layers:
   - Default
   - TransparentFX
