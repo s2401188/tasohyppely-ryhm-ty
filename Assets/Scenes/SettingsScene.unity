@@ -840,7 +840,7 @@ GameObject:
   - component: {fileID: 1103929558}
   - component: {fileID: 1103929557}
   m_Layer: 0
-  m_Name: GearToSettingsFinal_0 (2)
+  m_Name: Gear3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
