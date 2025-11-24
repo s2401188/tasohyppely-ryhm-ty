@@ -17,7 +17,7 @@ public class CanFinalBossAttack : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             HasEntered = true;
-            Debug.Log("Player has entered the final boss area");
+
         }
     }
 }

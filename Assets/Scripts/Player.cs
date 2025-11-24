@@ -7,6 +7,8 @@ using Unity.VisualScripting;
 using System;
 using UnityEditor.Experimental.GraphView;
 using TMPro;
+using JetBrains.Annotations;
+using UnityEngine.UIElements;
 
 public class PlayerAutoJump : MonoBehaviour
 {
@@ -15,10 +17,13 @@ public class PlayerAutoJump : MonoBehaviour
     private int CurrentHealth = 1;
     public GameObject PlayerIdle;
     public GameObject PlayerJump;
+    public GameObject Health1;
+    public GameObject Health2;
+    public GameObject Health3;
     private bool timeRunning = false;
     private float timePassed = 0.0f;
     public float TargetTime = 5.0f;
-    public int MaxHealth = 2;
+    public int MaxHealth = 3;
     int count = 0;  
     public TextMeshProUGUI countText;
 
@@ -27,6 +32,7 @@ public class PlayerAutoJump : MonoBehaviour
 
     void Start()
     {
+        Health1.SetActive(true);
         SetCountText();
         rb = GetComponent<Rigidbody2D>();
 
@@ -40,6 +46,25 @@ public class PlayerAutoJump : MonoBehaviour
 
     void Update()
     {
+        if (CurrentHealth == 3)
+        {
+            Health1.SetActive(true);
+            Health2.SetActive(true);
+            Health3.SetActive(true);
+        }
+        if (CurrentHealth == 2)
+        {
+            Health1.SetActive(true ); 
+            Health2.SetActive(true );
+            Health3.SetActive(false );
+        }
+
+        if (CurrentHealth == 1)
+        { 
+            Health1.SetActive(true);
+            Health2.SetActive(false);
+            Health3.SetActive(false);
+        }
         // Get input (A/D or Left/Right arrows)
         float inputX = Input.GetAxis("Horizontal");
 
@@ -91,7 +116,13 @@ public class PlayerAutoJump : MonoBehaviour
             if (CurrentHealth < MaxHealth)
             {
                 CurrentHealth++;
+                Health2.SetActive(true);
                 Debug.Log(CurrentHealth);
+
+            }
+            if (CurrentHealth == MaxHealth)
+            {
+                Health3.SetActive(true);
             }
         }
         if (other.gameObject.CompareTag("Score"))
@@ -101,16 +132,19 @@ public class PlayerAutoJump : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Spikes"))
         {
-            if (CurrentHealth >= 1)
+            if (CurrentHealth <= 3)
             {
                 CurrentHealth--;
-                Debug.Log(CurrentHealth);
             }
             if (CurrentHealth == 0)
             {
                 SceneManager.LoadScene(3);
             }
+
         }
+
+    
+        
             if (other.gameObject.CompareTag("FinalBoss"))
             {
                 SceneManager.LoadScene(4);
@@ -120,6 +154,7 @@ public class PlayerAutoJump : MonoBehaviour
                 SceneManager.LoadScene(2);
 
             }
+                
 
         }
     }
