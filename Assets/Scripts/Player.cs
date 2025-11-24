@@ -111,6 +111,16 @@ public class PlayerAutoJump : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.CompareTag("TP"))
+        {
+            SceneManager.LoadScene(1);
+        }
+        if (other.gameObject.CompareTag("Cheater"))
+        {
+            SceneManager.LoadScene(6);
+        }
+
+
         if (other.gameObject.CompareTag("HEAL"))
         {
             if (CurrentHealth < MaxHealth)

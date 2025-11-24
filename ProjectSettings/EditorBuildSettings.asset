@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SettingsScene.unity
     guid: cfa51e68b60b28841b79c371fc406abe
+  - enabled: 1
+    path: Assets/Scenes/YouCheated.unity
+    guid: 4c8dc13274525c4438ef1e84d1596ecc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

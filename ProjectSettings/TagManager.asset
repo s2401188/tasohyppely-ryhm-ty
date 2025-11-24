@@ -13,6 +13,8 @@ TagManager:
   - FinalBoss
   - Trigger
   - Score
+  - TP
+  - Cheater
   layers:
   - Default
   - TransparentFX
