@@ -5,7 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - coinPrefab: {fileID: 4287251591174874044, guid: 69d547f11e41cf548bc197b2c7bec8a6, type: 3}
-  - heartPrefab: {fileID: 8124774062881244068, guid: 93e9df34744f5c340980d066c0e12a1e, type: 3}
+  - heartPrefab: {fileID: 7492251323435410533, guid: c76bb65702ef4f54f8734ad87f0a2993, type: 3}
   - chestPrefab: {fileID: 2620885455739598852, guid: 1a3f33717a9bcca4fa435fd38c61423f, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
