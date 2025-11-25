@@ -28,6 +28,8 @@ public class PlayerAutoJump : MonoBehaviour
     public TextMeshProUGUI countText;
 
 
+
+
     private Rigidbody2D rb;
 
     void Start()
@@ -142,8 +144,13 @@ public class PlayerAutoJump : MonoBehaviour
         }
         if(other.gameObject.CompareTag("Chest"))
         {
+
             count = count + 100;
             SetCountText();
+            if (CurrentHealth < MaxHealth)
+            {
+                CurrentHealth++;
+            }
         }
 
         if (other.gameObject.CompareTag("Spikes"))

@@ -1136,7 +1136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  jumpForce: 8
+  jumpForce: 9.5
   PlayerIdle: {fileID: 276228440}
   PlayerJump: {fileID: 1601859381}
   Health1: {fileID: 551034478}
@@ -1897,10 +1897,12 @@ MonoBehaviour:
   - {fileID: 7150855627244300930, guid: 7425d93d2aa02fa469c25b7ff74079fb, type: 3}
   - {fileID: 8784346540192448805, guid: 3152e0072953b5c4c96148b145f50a64, type: 3}
   initialPlatforms: 8
-  minX: -2
-  maxX: 2
-  minY: 3
-  maxY: 4
+  minX: -4
+  maxX: 4
+  minY: 2
+  maxY: 7
+  topBuffer: 12
+  spawnSafetyLimitPerFrame: 50
 --- !u!4 &1063393572
 Transform:
   m_ObjectHideFlags: 0
@@ -1911,7 +1913,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3027,11 +3029,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1465572925509974488, guid: 1a3f33717a9bcca4fa435fd38c61423f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.38
+      value: 3.92
       objectReference: {fileID: 0}
     - target: {fileID: 1465572925509974488, guid: 1a3f33717a9bcca4fa435fd38c61423f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.53
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1465572925509974488, guid: 1a3f33717a9bcca4fa435fd38c61423f, type: 3}
       propertyPath: m_LocalPosition.z
