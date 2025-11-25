@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3864833482774944152}
   - component: {fileID: 1081647820238614645}
   - component: {fileID: 1246166650291066015}
+  - component: {fileID: -1956820755751118040}
   m_Layer: 0
   m_Name: Collectable
   m_TagString: Score
@@ -147,3 +148,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c9912066dfb674aacac18d0782c4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1956820755751118040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4287251591174874044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 351edc3db87300f40a9323eef1fde5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinSpeed: 180
+  shineSpeed: 2
