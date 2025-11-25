@@ -15,6 +15,7 @@ TagManager:
   - Score
   - TP
   - Cheater
+  - Chest
   layers:
   - Default
   - TransparentFX

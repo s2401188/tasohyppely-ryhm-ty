@@ -140,6 +140,12 @@ public class PlayerAutoJump : MonoBehaviour
             count = count + 50;
             SetCountText();
         }
+        if(other.gameObject.CompareTag("Chest"))
+        {
+            count = count + 100;
+            SetCountText();
+        }
+
         if (other.gameObject.CompareTag("Spikes"))
         {
             if (CurrentHealth <= 3)
