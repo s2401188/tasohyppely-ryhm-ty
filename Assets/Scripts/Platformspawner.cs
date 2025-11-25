@@ -11,6 +11,10 @@ public class PlatformSpawner : MonoBehaviour
     public float maxY = 3.5f;
     public float topBuffer = 12f;
     public int spawnSafetyLimitPerFrame = 50;
+    public float minCollectibleX = -3f;
+    public float maxCollectibleX = 3f;
+    public float minCollectibleY = 0f;
+    public float maxCollectibleY = 20f;
 
     public CollectibleSpawner collectibleSpawner;
 
@@ -79,11 +83,32 @@ public class PlatformSpawner : MonoBehaviour
     void TrySpawnCollectibleAir(Vector3 platformPos)
     {
         if (collectibleSpawner == null) return;
-        if (Random.value > 0.25f) return;
 
+        if (Random.value < 0.7f) // 70% chance for coin
+        {
+            Vector3 coinPos = GetRandomCollectiblePosition(platformPos);
+            collectibleSpawner.SpawnSpecificCollectible(collectibleSpawner.coinPrefab, coinPos);
+        }
+
+        if (Random.value < 0.3f) // 30% chance for heart
+        {
+            Vector3 heartPos = GetRandomCollectiblePosition(platformPos);
+            collectibleSpawner.SpawnSpecificCollectible(collectibleSpawner.heartPrefab, heartPos);
+        }
+
+        if (Random.value < 0.1f) // 10% chance for chest
+        {
+            Vector3 chestPos = GetRandomCollectiblePosition(platformPos);
+            collectibleSpawner.SpawnSpecificCollectible(collectibleSpawner.chestPrefab, chestPos);
+        }
+    }
+
+    Vector3 GetRandomCollectiblePosition(Vector3 platformPos)
+    {
         float offsetX = Random.Range(-2f, 2f);
         float offsetY = Random.Range(1f, 4f);
-        Vector3 pos = new Vector3(platformPos.x + offsetX, platformPos.y + offsetY, 0);
-        collectibleSpawner.SpawnCollectible(pos);
+        float spawnX = Mathf.Clamp(platformPos.x + offsetX, minCollectibleX, maxCollectibleX);
+        float spawnY = Mathf.Clamp(platformPos.y + offsetY, minCollectibleY, maxCollectibleY);
+        return new Vector3(spawnX, spawnY, 0);
     }
 }

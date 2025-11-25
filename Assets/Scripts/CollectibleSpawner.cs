@@ -19,5 +19,10 @@ public class CollectibleSpawner : MonoBehaviour
         else
             Instantiate(coinPrefab, position, Quaternion.identity);
     }
+    public void SpawnSpecificCollectible(GameObject prefab, Vector3 position)
+    {
+        if (prefab == null) return;
+        Instantiate(prefab, position, Quaternion.identity);
+    }
 }
 
