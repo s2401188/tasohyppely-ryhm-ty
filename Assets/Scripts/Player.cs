@@ -165,10 +165,23 @@ public class PlayerAutoJump : MonoBehaviour
             }
 
         }
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            if (CurrentHealth <= 3)
+            {
+                CurrentHealth--;
+            }
+            if (CurrentHealth == 0)
+            {
+                Debug.Log("Bot killed you");
 
-    
-        
-            if (other.gameObject.CompareTag("FinalBoss"))
+            }
+
+        }
+
+
+
+        if (other.gameObject.CompareTag("FinalBoss"))
             {
                 SceneManager.LoadScene(4);
             }
