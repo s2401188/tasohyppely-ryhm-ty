@@ -12,6 +12,8 @@ public class PlatformSpawner : MonoBehaviour
     public float topBuffer = 12f;
     public int spawnSafetyLimitPerFrame = 50;
 
+    public CollectibleSpawner collectibleSpawner;
+
     private float highestY;
     private Camera cam;
     private List<GameObject> platforms = new List<GameObject>();
@@ -70,5 +72,18 @@ public class PlatformSpawner : MonoBehaviour
         }
         platforms.Add(p);
         highestY = y;
+
+        TrySpawnCollectibleAir(spawnPos);
+    }
+
+    void TrySpawnCollectibleAir(Vector3 platformPos)
+    {
+        if (collectibleSpawner == null) return;
+        if (Random.value > 0.25f) return;
+
+        float offsetX = Random.Range(-2f, 2f);
+        float offsetY = Random.Range(1f, 4f);
+        Vector3 pos = new Vector3(platformPos.x + offsetX, platformPos.y + offsetY, 0);
+        collectibleSpawner.SpawnCollectible(pos);
     }
 }
