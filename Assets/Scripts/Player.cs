@@ -49,7 +49,7 @@ public class PlayerAutoJump : MonoBehaviour
 
     void Update()
     {
-        if (count >= 500)
+        if (count >= 10000)
         {
             ScoreCrown.SetActive(true);
         }
