@@ -20,6 +20,7 @@ public class PlayerAutoJump : MonoBehaviour
     public GameObject Health1;
     public GameObject Health2;
     public GameObject Health3;
+    public GameObject ScoreCrown;
     private bool timeRunning = false;
     private float timePassed = 0.0f;
     public float TargetTime = 5.0f;
@@ -48,6 +49,10 @@ public class PlayerAutoJump : MonoBehaviour
 
     void Update()
     {
+        if (count >= 500)
+        {
+            ScoreCrown.SetActive(true);
+        }
         if (CurrentHealth == 3)
         {
             Health1.SetActive(true);
