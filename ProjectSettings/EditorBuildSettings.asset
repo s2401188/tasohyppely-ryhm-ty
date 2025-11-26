@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BEDS.unity
     guid: c0b431e777bf4dd4b93a5859613a125d
+  - enabled: 1
+    path: Assets/Scenes/EasyMode.unity
+    guid: 82d278a9990d5da41a445e720193999a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
