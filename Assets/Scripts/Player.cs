@@ -173,7 +173,7 @@ public class PlayerAutoJump : MonoBehaviour
             }
             if (CurrentHealth == 0)
             {
-                Debug.Log("Bot killed you");
+                SceneManager.LoadScene(7);
 
             }
 
