@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      OillampGlowFix_0: 6823377578799952162
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

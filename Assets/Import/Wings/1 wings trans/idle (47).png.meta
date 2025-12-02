@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: dfc9601c294210945946729c4fc6750c
+guid: d9b9cd2b550283e4d9bdf52d3053d18a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7530254840398398230
-    second: GettingToDeepSpace_0
+      213: 3820484499762628205
+    second: idle (47)_0
+  - first:
+      213: 6591535255123744753
+    second: idle (47)_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GettingToDeepSpace_0
+      name: idle (47)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 936
-        height: 2560
+        x: 210
+        y: 260
+        width: 174
+        height: 247
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aec33e1ae192f7790800000000000000
-      internalID: -7530254840398398230
+      spriteID: d66cc362966150530800000000000000
+      internalID: 3820484499762628205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle (47)_1
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 260
+        width: 177
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f75d1e1466d97b50800000000000000
+      internalID: 6591535255123744753
       vertices: []
       indices: 
       edges: []
@@ -138,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GettingToDeepSpace_0: -7530254840398398230
+      idle (47)_0: 3820484499762628205
+      idle (47)_1: 6591535255123744753
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
