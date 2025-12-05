@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BossFightArena2_0: 6071065727185073481
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
