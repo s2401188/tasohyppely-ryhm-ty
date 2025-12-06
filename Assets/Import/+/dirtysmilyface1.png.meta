@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cfa6591b579176d42abfe7ad39609a8c
+guid: 845284ff8fdaf324bbd66e9f666c7756
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -417853787070362409
-    second: EnemyBasicV1_0
+      213: 7299955141992014568
+    second: dirtysmilyface1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EnemyBasicV1_0
+      name: dirtysmilyface1_0
       rect:
         serializedVersion: 2
-        x: 249
-        y: 471
-        width: 502
-        height: 399
+        x: 39
+        y: 40
+        width: 424
+        height: 424
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7dc8e9dc13c733af0800000000000000
-      internalID: -417853787070362409
+      spriteID: 8e268ba5686ae4560800000000000000
+      internalID: 7299955141992014568
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      EnemyBasicV1_0: -417853787070362409
+      dirtysmilyface1_0: 7299955141992014568
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -16,6 +16,9 @@ TagManager:
   - TP
   - Cheater
   - Chest
+  - D1
+  - D2
+  - D3
   layers:
   - Default
   - TransparentFX

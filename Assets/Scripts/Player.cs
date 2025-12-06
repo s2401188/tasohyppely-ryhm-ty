@@ -27,6 +27,7 @@ public class PlayerAutoJump : MonoBehaviour
     public int MaxHealth = 3;
     int count = 0;  
     public TextMeshProUGUI countText;
+   
 
 
 
@@ -103,7 +104,7 @@ public class PlayerAutoJump : MonoBehaviour
 
     }
 
-
+        
 
     void OnCollisionEnter2D(Collision2D collision)
     {
