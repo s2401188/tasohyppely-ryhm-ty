@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: c530da1c6aa5cc04097580441eda345c
+guid: 2efd4d97b5bc6e84d9e43e030809931d
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 6385931201122525438
-    second: BossfightRedBO_0
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -42,7 +39,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -97,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -111,29 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: BossfightRedBO_0
-      rect:
-        serializedVersion: 2
-        x: 294
-        y: 293
-        width: 464
-        height: 493
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ef0edf2e7926f9850800000000000000
-      internalID: 6385931201122525438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     customData: 
     physicsShape: []
@@ -147,10 +122,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      BossfightRedBO_0: 6385931201122525438
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 315271
+  packageName: 'Bullet FX Pack: Trail, Fire & Energy'
+  packageVersion: 1.0.0
+  assetPath: Assets/Bullet FX Pack Trail, Fire, Energy/Sprites/1.png
+  uploadId: 753432
