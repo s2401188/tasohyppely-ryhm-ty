@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0df68b32a3282ee4e99727c2a79453ec
+guid: 591873321bd6de549ab8809aaf8b7d9d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3250463897903464783
-    second: BossFightArena_0
+      213: -1950680031237818970
+    second: BossfightBlueBO_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BossFightArena_0
+      name: BossfightBlueBO_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        x: 294
+        y: 293
+        width: 464
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1be7b3a7e4804e2d0800000000000000
-      internalID: -3250463897903464783
+      spriteID: 6a53f93c8dacde4e0800000000000000
+      internalID: -1950680031237818970
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      BossFightArena_0: -3250463897903464783
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

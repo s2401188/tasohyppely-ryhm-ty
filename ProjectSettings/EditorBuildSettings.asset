@@ -41,9 +41,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StoryMode.unity
     guid: 84df9ffb9fec4764981bb4e27049fbe4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FINALBOSS.unity
     guid: f6842eb992fff444aa4816d00cf3af0b
+  - enabled: 0
+    path: Assets/Scenes/YOU_WON.unity
+    guid: 47787ab8ea915084e970e804aa392849
+  - enabled: 1
+    path: Assets/Scenes/GameCredits.unity
+    guid: f5b9c8b4817d17e4e9faf1014ef0d21e
+  - enabled: 1
+    path: "Assets/Scenes/\u2620\uFE0E\uFE0E.unity"
+    guid: feba532e9c3abdb4394725c52bcd04f2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
