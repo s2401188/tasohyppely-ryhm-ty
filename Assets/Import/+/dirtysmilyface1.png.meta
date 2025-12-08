@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: db671a4a9998828458253ef6f7dfd865
+guid: 845284ff8fdaf324bbd66e9f666c7756
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8697186289976474010
-    second: YouWon 1_0
+      213: 7299955141992014568
+    second: dirtysmilyface1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -74,7 +74,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: YouWon 1_0
+      name: dirtysmilyface1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 936
-        height: 1280
+        x: 39
+        y: 40
+        width: 424
+        height: 424
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6660e8026236d4780800000000000000
-      internalID: -8697186289976474010
+      spriteID: 8e268ba5686ae4560800000000000000
+      internalID: 7299955141992014568
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      YouWon 1_0: -8697186289976474010
+      dirtysmilyface1_0: 7299955141992014568
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
