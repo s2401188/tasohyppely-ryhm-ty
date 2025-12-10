@@ -3738,6 +3738,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8602144018752186090, guid: a53b2be8477852c4a9c79691bd39d66e, type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602144018752186090, guid: a53b2be8477852c4a9c79691bd39d66e, type: 3}
       propertyPath: TargetTime
       value: 0.2
       objectReference: {fileID: 0}
@@ -3809,7 +3813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9144131034020262168, guid: 11a402532683b154dab1fc32d2517703, type: 3}
       propertyPath: health
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
