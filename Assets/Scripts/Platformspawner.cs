@@ -4,6 +4,11 @@ using UnityEngine;
 public class PlatformSpawner : MonoBehaviour
 {
     public GameObject[] platformPrefabs;
+    public GameObject[] enemyPrefabs;
+
+    public float enemySpawnChance = 0.15f;
+    public float enemyYOffset = 0.6f;
+
     public int initialPlatforms = 8;
     public float minX = -3f;
     public float maxX = 3f;
@@ -18,9 +23,9 @@ public class PlatformSpawner : MonoBehaviour
 
     public CollectibleSpawner collectibleSpawner;
 
-    private float highestY;
-    private Camera cam;
-    private List<GameObject> platforms = new List<GameObject>();
+    float highestY;
+    Camera cam;
+    List<GameObject> platforms = new List<GameObject>();
 
     void Start()
     {
@@ -34,6 +39,7 @@ public class PlatformSpawner : MonoBehaviour
     {
         float cameraTop = cam.transform.position.y + topBuffer;
         int safety = 0;
+
         while (highestY < cameraTop && safety < spawnSafetyLimitPerFrame)
         {
             SpawnPlatform();
@@ -43,15 +49,19 @@ public class PlatformSpawner : MonoBehaviour
 
     void SpawnPlatform()
     {
-        if (platformPrefabs == null || platformPrefabs.Length == 0) return;
+        if (platformPrefabs.Length == 0) return;
+
         GameObject prefab = platformPrefabs[Random.Range(0, platformPrefabs.Length)];
         float offsetY = Random.Range(minY, maxY);
         if (offsetY < 0.1f) offsetY = 0.1f;
+
         float y = highestY + offsetY;
         float x = Random.Range(minX, maxX);
-        Vector3 spawnPos = new Vector3(x, y, 0);
-        GameObject p = Instantiate(prefab, spawnPos, Quaternion.identity);
+
+        Vector3 pos = new Vector3(x, y, 0);
+        GameObject p = Instantiate(prefab, pos, Quaternion.identity);
         p.tag = "Ground";
+
         PlatformType typeScript = p.GetComponent<PlatformType>();
         if (typeScript != null)
         {
@@ -69,38 +79,44 @@ public class PlatformSpawner : MonoBehaviour
             else if (type == 1) p.AddComponent<FallingPlatform>();
             else p.AddComponent<MovingPlatform>();
         }
+
         if (p.GetComponent<DespawnBelowCamera>() == null)
         {
-            DespawnBelowCamera db = p.AddComponent<DespawnBelowCamera>();
-            db.offsetMultiplier = 1.5f;
+            DespawnBelowCamera d = p.AddComponent<DespawnBelowCamera>();
+            d.offsetMultiplier = 1.5f;
         }
+
         platforms.Add(p);
         highestY = y;
 
-        TrySpawnCollectibleAir(spawnPos);
+        TrySpawnCollectibleAir(pos);
+        TrySpawnEnemy(pos, p);
+    }
+
+    void TrySpawnEnemy(Vector3 pos, GameObject platform)
+    {
+        if (enemyPrefabs.Length == 0) return;
+        if (Random.value > enemySpawnChance) return;
+
+        GameObject enemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)],
+            pos + Vector3.up * enemyYOffset,
+            Quaternion.identity);
+
+        enemy.transform.SetParent(platform.transform);
     }
 
     void TrySpawnCollectibleAir(Vector3 platformPos)
     {
         if (collectibleSpawner == null) return;
 
-        if (Random.value < 0.7f) // 70% chance for coin
-        {
-            Vector3 coinPos = GetRandomCollectiblePosition(platformPos);
-            collectibleSpawner.SpawnSpecificCollectible(collectibleSpawner.coinPrefab, coinPos);
-        }
+        if (Random.value < 0.7f)
+            collectibleSpawner.SpawnSpecificCollectible(collectibleSpawner.coinPrefab, GetRandomCollectiblePosition(platformPos));
 
-        if (Random.value < 0.3f) // 30% chance for heart
-        {
-            Vector3 heartPos = GetRandomCollectiblePosition(platformPos);
-            collectibleSpawner.SpawnSpecificCollectible(collectibleSpawner.heartPrefab, heartPos);
-        }
+        if (Random.value < 0.3f)
+            collectibleSpawner.SpawnSpecificCollectible(collectibleSpawner.heartPrefab, GetRandomCollectiblePosition(platformPos));
 
-        if (Random.value < 0.1f) // 10% chance for chest
-        {
-            Vector3 chestPos = GetRandomCollectiblePosition(platformPos);
-            collectibleSpawner.SpawnSpecificCollectible(collectibleSpawner.chestPrefab, chestPos);
-        }
+        if (Random.value < 0.1f)
+            collectibleSpawner.SpawnSpecificCollectible(collectibleSpawner.chestPrefab, GetRandomCollectiblePosition(platformPos));
     }
 
     Vector3 GetRandomCollectiblePosition(Vector3 platformPos)

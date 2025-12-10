@@ -65,8 +65,7 @@ public class PlayerAutoJump : MonoBehaviour
         float inputX = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(inputX * moveSpeed, rb.linearVelocity.y);
 
-        // --------------------------------------------------------
-        // SCREEN WRAP (Doodle Jump style left/right teleport)
+      
         float halfWidth = Camera.main.orthographicSize * Camera.main.aspect;
         Vector3 pos = transform.position;
 
@@ -74,7 +73,7 @@ public class PlayerAutoJump : MonoBehaviour
         else if (pos.x < -halfWidth) pos.x = halfWidth;
 
         transform.position = pos;
-        // --------------------------------------------------------
+      
     }
 
     private void FixedUpdate()

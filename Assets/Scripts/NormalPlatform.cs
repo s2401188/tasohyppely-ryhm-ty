@@ -14,7 +14,11 @@ public class NormalPlatform : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        
+        if (!col.collider.CompareTag("Player")) return;
+
         hits++;
+
         if (hits >= maxHits)
             rb.bodyType = RigidbodyType2D.Dynamic;
     }
