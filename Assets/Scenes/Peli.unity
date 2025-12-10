@@ -2286,7 +2286,7 @@ GameObject:
   - component: {fileID: 1061830122}
   - component: {fileID: 1061830121}
   - component: {fileID: 1061830120}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2364,7 +2364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1063393572}
   - component: {fileID: 1063393571}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spawner
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2389,7 +2389,7 @@ MonoBehaviour:
   - {fileID: 8784346540192448805, guid: 3152e0072953b5c4c96148b145f50a64, type: 3}
   enemyPrefabs:
   - {fileID: 7569405313215700697}
-  enemySpawnChance: 0.15
+  enemySpawnChance: 0.3
   enemyYOffset: 0.6
   initialPlatforms: 8
   minX: -3.5
@@ -2531,8 +2531,8 @@ Transform:
   m_GameObject: {fileID: 1114395111}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.059, y: -2.1, z: 0}
-  m_LocalScale: {x: 5, y: 1.7709999, z: 1}
+  m_LocalPosition: {x: -0.18, y: -2.46, z: 0}
+  m_LocalScale: {x: 2, y: 0.70839995, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7569405313215700698}
@@ -3908,6 +3908,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2392047833452446835, guid: 11a402532683b154dab1fc32d2517703, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2573664478029869521, guid: 11a402532683b154dab1fc32d2517703, type: 3}
       propertyPath: m_IsTrigger
       value: 0

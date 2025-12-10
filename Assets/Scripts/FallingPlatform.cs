@@ -21,6 +21,11 @@ public class FallingPlatform : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         if (triggered) return;
+
+        
+        if (!other.collider.CompareTag("Player")) return;
+
+        
         if (other.contacts[0].normal.y <= -0.5f)
         {
             triggered = true;

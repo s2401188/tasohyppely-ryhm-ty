@@ -2,20 +2,26 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public float speed = 15f;
+    public float lifeTime = 2f;
     public int damage = 1;
-    public float lifetime = 3f;
+
+    Rigidbody2D rb;
 
     void Start()
     {
-        Destroy(gameObject, lifetime);
+        rb = GetComponent<Rigidbody2D>();
+        rb.linearVelocity = transform.right * speed;
+        Destroy(gameObject, lifeTime);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Enemy"))
+        Enemy enemy = collision.GetComponent<Enemy>();
+
+        if (enemy != null)
         {
-            Enemy enemy = other.GetComponent<Enemy>();
-            if (enemy != null) enemy.TakeDamage(damage);
+            enemy.TakeDamage(damage);
             Destroy(gameObject);
         }
     }
