@@ -22,7 +22,6 @@ public class PlayerAutoJump : MonoBehaviour
     private float timePassed = 0.0f;
     public float TargetTime = 5.0f;
     public int MaxHealth = 3;
-
     int count = 0;
     public TextMeshProUGUI countText;
 
