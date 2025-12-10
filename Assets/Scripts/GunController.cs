@@ -7,7 +7,17 @@ public class GunController : MonoBehaviour
     public float bulletSpeed = 15f;
     public float fireRate = 0.2f;
     float fireCooldown = 0f;
+    private AudioSource audioSource;
+    public AudioClip GunSound;
+    public GameObject GunFire;
+    private bool timeRunning = false;
+    private float timePassed = 0.0f;
+    public float TargetTime = 5.0f;
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     void Update()
     {
         RotateGun();
@@ -19,7 +29,24 @@ public class GunController : MonoBehaviour
             fireCooldown = fireRate;
         }
     }
+    private void FixedUpdate()
+    {
+        if (timeRunning == true)
+        {
+            GunFire.SetActive(true);
 
+            if (timePassed < TargetTime)
+                timePassed += Time.deltaTime;
+
+            if (timePassed >= TargetTime)
+            {
+
+                timeRunning = false;
+                timePassed = 0.0f;
+                GunFire.SetActive (false);
+            }
+        }
+    }
     void RotateGun()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -33,5 +60,8 @@ public class GunController : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.linearVelocity = firePoint.right * bulletSpeed;
+        audioSource.clip = GunSound;
+        audioSource.Play();
+        timeRunning = true;
     }
 }
