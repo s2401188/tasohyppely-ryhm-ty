@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -60,7 +61,18 @@ public class Enemy : MonoBehaviour
         if (!dead && collision.gameObject.CompareTag("Ground"))
             transform.SetParent(collision.transform);
     }
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            health--;
+            if (health == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        
+    }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
