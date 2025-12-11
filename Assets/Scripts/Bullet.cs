@@ -24,5 +24,10 @@ public class Bullet : MonoBehaviour
             enemy.TakeDamage(damage);
             Destroy(gameObject);
         }
+        void OnTriggerEnter2D(Collider2D c)
+        {
+            Debug.Log("Hit by: " + c.name);
+        }
+
     }
 }
