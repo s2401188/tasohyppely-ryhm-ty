@@ -32,12 +32,20 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         dead = true;
-        col.enabled = false;
+
+        Collider2D[] allCols = GetComponentsInChildren<Collider2D>();
+        for (int i = 0; i < allCols.Length; i++)
+            allCols[i].enabled = false;
+
         rb.gravityScale = deathFallGravity;
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, deathUpForce);
+        rb.linearVelocity = new Vector2(0, deathUpForce);
+
         transform.localScale = new Vector3(transform.localScale.x, -transform.localScale.y, 1);
+
         EnemyWalker walker = GetComponent<EnemyWalker>();
         if (walker != null) walker.enabled = false;
+
+        platform = null;
     }
 
     void Update()
@@ -60,17 +68,15 @@ public class Enemy : MonoBehaviour
         if (collision.transform == platform)
             platform = null;
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            health--;
-            if (health == 0)
-            {
-                Destroy(gameObject);
-            }
+            TakeDamage(1);
         }
     }
+
     void LateUpdate()
     {
         if (platform != null && !dead)
