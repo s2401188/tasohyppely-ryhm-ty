@@ -1848,7 +1848,7 @@ MonoBehaviour:
   TargetTime: 0.3
   MaxHealth: 3
   countText: {fileID: 1850941279}
-  TargetTime2: 0.5
+  TargetTime2: 0.2
 --- !u!4 &825346550
 Transform:
   m_ObjectHideFlags: 0
