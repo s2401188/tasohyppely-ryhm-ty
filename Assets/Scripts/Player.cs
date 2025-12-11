@@ -157,10 +157,10 @@ public class PlayerAutoJump : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             timeRunning2 = true;
-            Debug.Log(CurrentHealth);
+
             if (CanPlayerTakeDamage == true)
             {
-                Debug.Log(CurrentHealth);
+
                 if (CurrentHealth > 0) CurrentHealth--;
             }
 
