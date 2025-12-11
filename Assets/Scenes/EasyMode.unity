@@ -3641,7 +3641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  jumpForce: 10
+  jumpForce: 11
   PlayerIdle: {fileID: 1527864979}
   PlayerJump: {fileID: 1168366279}
   Health1: {fileID: 144034006}
@@ -3651,6 +3651,7 @@ MonoBehaviour:
   TargetTime: 0.3
   MaxHealth: 3
   countText: {fileID: 1718971140}
+  TargetTime2: 5
 --- !u!1 &2073576835
 GameObject:
   m_ObjectHideFlags: 0

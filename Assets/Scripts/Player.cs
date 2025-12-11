@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
+using JetBrains.Annotations;
 
 public class PlayerAutoJump : MonoBehaviour
 {
     public float moveSpeed = 6f;
     public float jumpForce = 12f;
     private int CurrentHealth = 1;
+
 
     public GameObject PlayerIdle;
     public GameObject PlayerJump;
@@ -26,12 +28,19 @@ public class PlayerAutoJump : MonoBehaviour
     public TextMeshProUGUI countText;
 
     private Rigidbody2D rb;
+    private bool timeRunning2 = false;
+    private float timePassed2 = 0.0f;
+    public float TargetTime2 = 5.0f;
+    private bool CanPlayerTakeDamage = true;
+
 
     void Start()
     {
         Health1.SetActive(true);
         SetCountText();
         rb = GetComponent<Rigidbody2D>();
+        CurrentHealth = 3;
+
     }
 
     void SetCountText()
@@ -94,6 +103,21 @@ public class PlayerAutoJump : MonoBehaviour
                 timePassed = 0.0f;
             }
         }
+        if (timeRunning2 == true)
+        {
+            CanPlayerTakeDamage = false;
+ 
+
+            if (timePassed2 < TargetTime2)
+                timePassed2 += Time.deltaTime;
+
+            if (timePassed2 >= TargetTime2)
+            {
+                timeRunning2 = false;
+                timePassed2 = 0.0f;
+                CanPlayerTakeDamage = true;
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -130,10 +154,21 @@ public class PlayerAutoJump : MonoBehaviour
             if (CurrentHealth < MaxHealth) CurrentHealth++;
         }
 
-        if (other.gameObject.CompareTag("Spikes") || other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            if (CurrentHealth > 0) CurrentHealth--;
-            if (CurrentHealth == 0) SceneManager.LoadScene(other.CompareTag("Spikes") ? 3 : 7);
+            timeRunning2 = true;
+            Debug.Log(CurrentHealth);
+            if (CanPlayerTakeDamage == true)
+            {
+                Debug.Log(CurrentHealth);
+                if (CurrentHealth > 0) CurrentHealth--;
+            }
+
+
+            if (CurrentHealth == 0)
+            {
+                SceneManager.LoadScene(7);
+            }
         }
 
         if (other.gameObject.CompareTag("FinalBoss")) SceneManager.LoadScene(4);
