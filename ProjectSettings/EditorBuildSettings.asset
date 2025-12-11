@@ -59,6 +59,9 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/\u2620\uFE0E\uFE0E.unity"
     guid: feba532e9c3abdb4394725c52bcd04f2
+  - enabled: 1
+    path: Assets/Scenes/HOWTOPLAY.unity
+    guid: 0ac0b2667b7a46e4582a5413f3201b9b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
