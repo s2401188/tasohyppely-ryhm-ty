@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -59,7 +60,17 @@ public class Enemy : MonoBehaviour
         if (collision.transform == platform)
             platform = null;
     }
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            health--;
+            if (health == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
     void LateUpdate()
     {
         if (platform != null && !dead)
