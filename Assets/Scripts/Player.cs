@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
+using JetBrains.Annotations;
 
 public class PlayerAutoJump : MonoBehaviour
 {
     public float moveSpeed = 6f;
     public float jumpForce = 12f;
     private int CurrentHealth = 1;
+
 
     public GameObject PlayerIdle;
     public GameObject PlayerJump;
@@ -22,17 +24,23 @@ public class PlayerAutoJump : MonoBehaviour
     private float timePassed = 0.0f;
     public float TargetTime = 5.0f;
     public int MaxHealth = 3;
-
     int count = 0;
     public TextMeshProUGUI countText;
 
     private Rigidbody2D rb;
+    private bool timeRunning2 = false;
+    private float timePassed2 = 0.0f;
+    public float TargetTime2 = 5.0f;
+    private bool CanPlayerTakeDamage = true;
+
 
     void Start()
     {
         Health1.SetActive(true);
         SetCountText();
         rb = GetComponent<Rigidbody2D>();
+        CurrentHealth = 3;
+
     }
 
     void SetCountText()
@@ -66,8 +74,7 @@ public class PlayerAutoJump : MonoBehaviour
         float inputX = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(inputX * moveSpeed, rb.linearVelocity.y);
 
-        // --------------------------------------------------------
-        // SCREEN WRAP (Doodle Jump style left/right teleport)
+      
         float halfWidth = Camera.main.orthographicSize * Camera.main.aspect;
         Vector3 pos = transform.position;
 
@@ -75,7 +82,7 @@ public class PlayerAutoJump : MonoBehaviour
         else if (pos.x < -halfWidth) pos.x = halfWidth;
 
         transform.position = pos;
-        // --------------------------------------------------------
+      
     }
 
     private void FixedUpdate()
@@ -94,6 +101,21 @@ public class PlayerAutoJump : MonoBehaviour
                 PlayerJump.SetActive(false);
                 timeRunning = false;
                 timePassed = 0.0f;
+            }
+        }
+        if (timeRunning2 == true)
+        {
+            CanPlayerTakeDamage = false;
+ 
+
+            if (timePassed2 < TargetTime2)
+                timePassed2 += Time.deltaTime;
+
+            if (timePassed2 >= TargetTime2)
+            {
+                timeRunning2 = false;
+                timePassed2 = 0.0f;
+                CanPlayerTakeDamage = true;
             }
         }
     }
@@ -132,10 +154,21 @@ public class PlayerAutoJump : MonoBehaviour
             if (CurrentHealth < MaxHealth) CurrentHealth++;
         }
 
-        if (other.gameObject.CompareTag("Spikes") || other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            if (CurrentHealth > 0) CurrentHealth--;
-            if (CurrentHealth == 0) SceneManager.LoadScene(other.CompareTag("Spikes") ? 3 : 7);
+            timeRunning2 = true;
+
+            if (CanPlayerTakeDamage == true)
+            {
+
+                if (CurrentHealth > 0) CurrentHealth--;
+            }
+
+
+            if (CurrentHealth == 0)
+            {
+                SceneManager.LoadScene(7);
+            }
         }
 
         if (other.gameObject.CompareTag("FinalBoss")) SceneManager.LoadScene(4);
