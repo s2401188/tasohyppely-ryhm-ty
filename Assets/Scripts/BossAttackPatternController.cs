@@ -18,9 +18,9 @@ public class BossAttackPatternController : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(Main());
+       // StartCoroutine(Main());
     }
-
+    
     IEnumerator Main()
     {
         while (true)

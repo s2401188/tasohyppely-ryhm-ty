@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum BossPhase
 {
@@ -36,5 +37,17 @@ public class BossPhaseController : MonoBehaviour
     public void ChangePhase(BossPhase phase)
     {
         currentPhase = phase;
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            currentHealth--;
+            Debug.Log(currentHealth);
+           if (currentHealth == 0)
+            {
+                SceneManager.LoadScene(12);
+            }
+        }
     }
 }
