@@ -2,26 +2,20 @@ using UnityEngine;
 
 public class BossBullet : MonoBehaviour
 {
-    public float speed = 6f;
-    public float lifeTime = 6f;
+    public float speed = 8f;
 
     Vector2 direction;
-    bool hasDirection;
+    Rigidbody2D rb;
 
-    void Start()
+    void Awake()
     {
-        Destroy(gameObject, lifeTime);
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
     }
 
     public void SetDirection(Vector2 dir)
     {
         direction = dir.normalized;
-        hasDirection = true;
-    }
-
-    void Update()
-    {
-        if (!hasDirection) return;
-        transform.position += (Vector3)(direction * speed * Time.deltaTime);
+        rb.linearVelocity = direction * speed;
     }
 }

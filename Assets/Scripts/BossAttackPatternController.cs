@@ -5,22 +5,24 @@ public class BossAttackPatternController : MonoBehaviour
 {
     public BossPhaseController phaseController;
     public BossMovementController movement;
+
     public Transform fireOrigin;
     public Transform player;
+
     public GameObject bulletPrefab;
     public GameObject lightningPrefab;
     public GameObject laserPrefab;
-    public AudioSource musicSource;
 
+    public AudioSource musicSource;
     public float desperationTier2Start = 289f;
 
     float spiralAngle;
 
     void Start()
     {
-       // StartCoroutine(Main());
+        StartCoroutine(Main());
     }
-    
+
     IEnumerator Main()
     {
         while (true)
@@ -43,9 +45,14 @@ public class BossAttackPatternController : MonoBehaviour
         while (phaseController.currentPhase == BossPhase.Phase1)
         {
             int pattern = Random.Range(0, 3);
-            if (pattern == 0) yield return StartCoroutine(SpiralBurst(60, 0.03f, 6f));
-            else if (pattern == 1) yield return StartCoroutine(RingBurst(24, 5f));
-            else yield return StartCoroutine(AimedBurst(5, 0.4f, 7f));
+
+            if (pattern == 0)
+                yield return StartCoroutine(SpiralBurst(60, 0.03f, 6f));
+            else if (pattern == 1)
+                yield return StartCoroutine(RingBurst(24, 5f));
+            else
+                yield return StartCoroutine(AimedBurst(5, 0.4f, 7f));
+
             yield return new WaitForSeconds(1f);
         }
     }
@@ -63,9 +70,14 @@ public class BossAttackPatternController : MonoBehaviour
         while (phaseController.currentPhase == BossPhase.TruePhase)
         {
             int pattern = Random.Range(0, 3);
-            if (pattern == 0) yield return StartCoroutine(SpiralBurst(80, 0.02f, 7f));
-            else if (pattern == 1) yield return StartCoroutine(RingBurst(32, 6f));
-            else yield return StartCoroutine(LightningPattern());
+
+            if (pattern == 0)
+                yield return StartCoroutine(SpiralBurst(80, 0.02f, 7f));
+            else if (pattern == 1)
+                yield return StartCoroutine(RingBurst(32, 6f));
+            else
+                yield return StartCoroutine(LightningPattern());
+
             yield return new WaitForSeconds(0.7f);
         }
     }
@@ -75,6 +87,7 @@ public class BossAttackPatternController : MonoBehaviour
         while (phaseController.currentPhase == BossPhase.Desperation)
         {
             bool tier2 = musicSource.time >= desperationTier2Start;
+
             if (!tier2)
             {
                 yield return StartCoroutine(SpiralBurst(80, 0.02f, 7f));
@@ -89,6 +102,7 @@ public class BossAttackPatternController : MonoBehaviour
                 yield return StartCoroutine(LightningPattern());
                 yield return StartCoroutine(LaserPattern());
             }
+
             yield return new WaitForSeconds(0.5f);
         }
     }
@@ -97,7 +111,7 @@ public class BossAttackPatternController : MonoBehaviour
     {
         for (int i = 0; i < steps; i++)
         {
-            spiralAngle += 120f * Time.deltaTime;
+            spiralAngle += 8f;
             float rad = spiralAngle * Mathf.Deg2Rad;
             Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
             SpawnBullet(fireOrigin.position, dir, speed);
@@ -124,8 +138,10 @@ public class BossAttackPatternController : MonoBehaviour
             float angle = (360f / count) * i;
             float rad1 = angle * Mathf.Deg2Rad;
             float rad2 = rad1 + Mathf.PI / 12f;
+
             Vector2 dir1 = new Vector2(Mathf.Cos(rad1), Mathf.Sin(rad1));
             Vector2 dir2 = new Vector2(Mathf.Cos(rad2), Mathf.Sin(rad2));
+
             SpawnBullet(fireOrigin.position, dir1, speed);
             SpawnBullet(fireOrigin.position, dir2, speed);
         }
@@ -148,16 +164,15 @@ public class BossAttackPatternController : MonoBehaviour
     IEnumerator RainPattern(int count, float delay, float speed)
     {
         movement.GoToCenterTop();
-        float left = -6f;
-        float right = 6f;
-        float y = 5.5f;
+
         for (int i = 0; i < count; i++)
         {
-            float x = Random.Range(left, right);
-            Vector3 pos = new Vector3(x, y, 0f);
+            float x = Random.Range(-6f, 6f);
+            Vector3 pos = new Vector3(x, fireOrigin.position.y, 0f);
             SpawnBullet(pos, Vector2.down, speed);
             yield return new WaitForSeconds(delay);
         }
+
         movement.Release();
     }
 
@@ -165,9 +180,11 @@ public class BossAttackPatternController : MonoBehaviour
     {
         movement.GoToCenterTop();
         yield return new WaitForSeconds(0.2f);
+
         float x = Random.Range(-4f, 4f);
         Vector3 pos = new Vector3(x, -1f, 0f);
         Instantiate(lightningPrefab, pos, Quaternion.identity);
+
         yield return new WaitForSeconds(1f);
         movement.Release();
     }
@@ -176,7 +193,9 @@ public class BossAttackPatternController : MonoBehaviour
     {
         movement.GoToCenter();
         yield return new WaitForSeconds(0.3f);
+
         Instantiate(laserPrefab, fireOrigin.position, Quaternion.identity);
+
         yield return new WaitForSeconds(1f);
         movement.Release();
     }
@@ -192,6 +211,8 @@ public class BossAttackPatternController : MonoBehaviour
 
     void SpawnBullet(Vector3 pos, Vector2 dir, float speed)
     {
+        Debug.Log("Boss bullet spawned at: " + pos);
+
         GameObject b = Instantiate(bulletPrefab, pos, Quaternion.identity);
         BossBullet bb = b.GetComponent<BossBullet>();
         bb.speed = speed;
