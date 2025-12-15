@@ -1266,9 +1266,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032cf005b733f2e4da21d4f8f40caa48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatAreaMin: {x: -6, y: 0}
-  floatAreaMax: {x: 6, y: 3}
-  horizontalSpeed: 1.5
+  floatAreaMin: {x: -10, y: 0}
+  floatAreaMax: {x: 10, y: 3}
+  horizontalSpeed: 3
   verticalAmplitude: 0.8
   verticalFrequency: 1.2
   moveToTargetSpeed: 5
