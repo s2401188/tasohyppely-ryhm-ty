@@ -73,8 +73,8 @@ public class BossPlayerController : MonoBehaviour
     {
         rb.linearVelocity = input * moveSpeed;
         Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, minX, maxX);
-        pos.y = Mathf.Clamp(pos.y, minY, maxY);
+        //pos.x = Mathf.Clamp(pos.x, minX, maxX);
+       // pos.y = Mathf.Clamp(pos.y, minY, maxY);
         transform.position = pos;
         if (timeRunning2 == true)
         {
