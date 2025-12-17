@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8524328977858335616}
   - component: {fileID: 8805631929176619110}
   - component: {fileID: 5419659466333207012}
+  - component: {fileID: 1971996936297478328}
   m_Layer: 0
   m_Name: BossBullet
-  m_TagString: Untagged
+  m_TagString: BossBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +106,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -166,4 +167,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  lifeTime: 6
+--- !u!114 &1971996936297478328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6402622129346490079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a550a058c3f9504883d574a0507f1b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanPlayerDestroy: 1
+  CanMapBorderDestory: 1

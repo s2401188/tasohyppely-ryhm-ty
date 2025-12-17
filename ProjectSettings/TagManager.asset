@@ -20,6 +20,9 @@ TagManager:
   - D2
   - D3
   - Bullet
+  - BossBullet
+  - MB
+  - Lightning
   layers:
   - Default
   - TransparentFX

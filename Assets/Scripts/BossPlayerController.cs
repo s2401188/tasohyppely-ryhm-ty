@@ -17,6 +17,9 @@ public class BossPlayerController : MonoBehaviour
     public float TargetTime2 = 5.0f;
     private bool CanPlayerTakeDamage = true;
 
+
+
+
     Rigidbody2D rb;
     Vector2 input;
 
@@ -24,24 +27,47 @@ public class BossPlayerController : MonoBehaviour
     {
         Health1.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
-        CurrentHealth = 3;
+        CurrentHealth = 30;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("FinalBoss"))
+        if (other.gameObject.CompareTag("BossBullet"))
         {
             timeRunning2 = true;
 
             if (CanPlayerTakeDamage == true)
             {
 
-                if (CurrentHealth > 0) CurrentHealth--;
+                if (CurrentHealth > 0)
+                {
+                    CurrentHealth--;
+
+                }
             }
-            if (CurrentHealth == 0)
+            if (CurrentHealth <= 0)
             {
                 SceneManager.LoadScene(4);
             }
         }
+        if (other.gameObject.CompareTag("Lightning"))
+        {
+            timeRunning2 = true;
+
+            if (CanPlayerTakeDamage == true)
+            {
+
+                if (CurrentHealth > 0)
+                {
+                    CurrentHealth -= 2;
+
+                }
+            }
+            if (CurrentHealth <= 0)
+            {
+                SceneManager.LoadScene(4);
+            }
+        }
+
     }
 
     void Update()
@@ -49,19 +75,19 @@ public class BossPlayerController : MonoBehaviour
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");
         input = input.normalized;
-        if (CurrentHealth == 3)
+        if (CurrentHealth <= 30 && CurrentHealth > 20)
         {
             Health1.SetActive(true);
             Health2.SetActive(true);
             Health3.SetActive(true);
         }
-        if (CurrentHealth == 2)
+        if (CurrentHealth <= 20 && CurrentHealth > 10)
         {
             Health1.SetActive(true);
             Health2.SetActive(true);
             Health3.SetActive(false);
         }
-        if (CurrentHealth == 1)
+        if (CurrentHealth <= 10)
         {
             Health1.SetActive(true);
             Health2.SetActive(false);
@@ -89,6 +115,7 @@ public class BossPlayerController : MonoBehaviour
                 timeRunning2 = false;
                 timePassed2 = 0.0f;
                 CanPlayerTakeDamage = true;
+                Debug.Log("Player can take damage");
             }
         }
     

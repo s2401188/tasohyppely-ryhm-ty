@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7573984498475133832}
   m_Layer: 0
   m_Name: Lightning
-  m_TagString: Untagged
+  m_TagString: Lightning
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,10 +101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67d36cc24f84d243b98bff322afc753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warningTime: 0.4
+  warningTime: 0.6
   strikeTime: 0.2
-  warningSprite: {fileID: 0}
-  strikeSprite: {fileID: 0}
+  warningSprite: {fileID: 21300000, guid: 035ae3c38788c844497f7122204ebeea, type: 3}
+  strikeSprite: {fileID: 21300000, guid: aedbfbb12804bd940a8138f857c5564f, type: 3}
 --- !u!68 &7573984498475133832
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -143,14 +143,30 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: 0.07287979, y: 9.980044}
-  - {x: -0.8830026, y: 8.080875}
-  - {x: -1.2435553, y: 6.4149885}
-  - {x: -1.7855207, y: 4.6851687}
-  - {x: -1.9013563, y: 2.4059048}
-  - {x: -1.5989656, y: -1.4467497}
+  - {x: -0.17552185, y: 9.178267}
+  - {x: -0.24381256, y: 8.601576}
+  - {x: -0.80068713, y: 8.022078}
+  - {x: -1.2357464, y: 7.044701}
+  - {x: -1.4787428, y: 6.4385076}
+  - {x: -1.1779251, y: 5.9112134}
+  - {x: -1.8443185, y: 4.497019}
+  - {x: -1.6617012, y: 4.0662355}
+  - {x: -1.605484, y: 3.331019}
+  - {x: -1.6896883, y: 2.347108}
+  - {x: -1.5370083, y: 1.4916912}
+  - {x: -1.8716278, y: -0.0044735074}
+  - {x: -1.3520193, y: -1.2585996}
+  - {x: -1.1643486, y: -1.7100129}
+  - {x: -1.0463791, y: -2.7170153}
+  - {x: -0.65540886, y: -2.8600905}
+  - {x: -0.5816555, y: -3.7255542}
   - {x: -0.40543914, y: -4.9464283}
-  - {x: -2.5182538, y: -7.37633}
-  - {x: -1.5582844, y: -9.980045}
+  - {x: -0.5041485, y: -5.530418}
+  - {x: -1.1521816, y: -6.4521723}
+  - {x: -2.101048, y: -7.635674}
+  - {x: -1.7470818, y: -9.691745}
+  - {x: -1.1074219, y: -9.939386}
+  - {x: -2.209743, y: -9.93095}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

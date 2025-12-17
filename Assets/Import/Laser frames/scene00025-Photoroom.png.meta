@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      scene00025-Photoroom_0: -866023318192736892
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
