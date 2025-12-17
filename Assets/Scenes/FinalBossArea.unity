@@ -1677,6 +1677,14 @@ PrefabInstance:
       value: GunV1
       objectReference: {fileID: 0}
     - target: {fileID: 8602144018752186090, guid: a53b2be8477852c4a9c79691bd39d66e, type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602144018752186090, guid: a53b2be8477852c4a9c79691bd39d66e, type: 3}
+      propertyPath: TargetTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602144018752186090, guid: a53b2be8477852c4a9c79691bd39d66e, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 1219834428}
@@ -2281,7 +2289,7 @@ MonoBehaviour:
   Health1: {fileID: 1288611064}
   Health2: {fileID: 1208149374}
   Health3: {fileID: 1001896213}
-  TargetTime2: 0.1
+  SHIELD_Duration: 50
 --- !u!1 &1134061276
 GameObject:
   m_ObjectHideFlags: 0

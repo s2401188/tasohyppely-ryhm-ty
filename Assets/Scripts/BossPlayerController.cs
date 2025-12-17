@@ -14,7 +14,7 @@ public class BossPlayerController : MonoBehaviour
     private int CurrentHealth = 1;
     private bool timeRunning2 = false;
     private float timePassed2 = 0.0f;
-    public float TargetTime2 = 5.0f;
+    public float SHIELD_Duration = 5.0f;
     private bool CanPlayerTakeDamage = true;
 
 
@@ -27,13 +27,16 @@ public class BossPlayerController : MonoBehaviour
     {
         Health1.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
-        CurrentHealth = 30;
+        CurrentHealth = 3;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("BossBullet"))
         {
-            timeRunning2 = true;
+            if (CanPlayerTakeDamage)
+            {
+                timeRunning2 = true;
+            }
 
             if (CanPlayerTakeDamage == true)
             {
@@ -53,12 +56,13 @@ public class BossPlayerController : MonoBehaviour
         {
             timeRunning2 = true;
 
+
             if (CanPlayerTakeDamage == true)
             {
 
                 if (CurrentHealth > 0)
                 {
-                    CurrentHealth -= 2;
+                    CurrentHealth --;
 
                 }
             }
@@ -75,19 +79,19 @@ public class BossPlayerController : MonoBehaviour
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");
         input = input.normalized;
-        if (CurrentHealth <= 30 && CurrentHealth > 20)
+        if (CurrentHealth == 3)
         {
             Health1.SetActive(true);
             Health2.SetActive(true);
             Health3.SetActive(true);
         }
-        if (CurrentHealth <= 20 && CurrentHealth > 10)
+        if (CurrentHealth == 2)
         {
             Health1.SetActive(true);
             Health2.SetActive(true);
             Health3.SetActive(false);
         }
-        if (CurrentHealth <= 10)
+        if (CurrentHealth == 1)
         {
             Health1.SetActive(true);
             Health2.SetActive(false);
@@ -107,15 +111,15 @@ public class BossPlayerController : MonoBehaviour
             CanPlayerTakeDamage = false;
 
 
-            if (timePassed2 < TargetTime2)
+            if (timePassed2 < SHIELD_Duration)
                 timePassed2 += Time.deltaTime;
 
-            if (timePassed2 >= TargetTime2)
+            if (timePassed2 >= SHIELD_Duration)
             {
                 timeRunning2 = false;
                 timePassed2 = 0.0f;
                 CanPlayerTakeDamage = true;
-                Debug.Log("Player can take damage");
+                Debug.Log("Shield out");
             }
         }
     
